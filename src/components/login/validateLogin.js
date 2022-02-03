@@ -1,31 +1,6 @@
 import * as Yup from "yup";
 
-export const validate = Yup.object({
-  firstName: Yup.string()
-    .max(15, "Must be 15 characters or less")
-    .required("required"),
-  lastName: Yup.string()
-    .max(20, "Must be 20 characters or less")
-    .required("required"),
-  city: Yup.string()
-    .max(20, "Must be 20 characters or less")
-    .required("Please enter location"),
-  email: Yup.string()
-    .email("Must be a valid email")
-    .max(255)
-    .required("Email is required"),
-  phone: Yup.number()
-    .typeError("That doesn't look like a phone number")
-    .positive("A phone number can't start with a minus")
-    .integer("A phone number can't include a decimal point")
-    .min(8)
-    .required("A phone number is required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Please enter password"),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Password mst match")
-    .required("Please confirm password"),
+export const validateLogin = Yup.object({
   personnummer: Yup.string()
     .transform((val) => val.toString())
     .trim()
